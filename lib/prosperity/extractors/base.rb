@@ -7,8 +7,8 @@ module Prosperity
         metric, option, period.floor_date.call(start_time), period.ceil_date.call(end_time), period
     end
 
-    def scope
-      @metric.options.fetch(option).block.call(metric.scope)
+    def scope(start_time = nil)
+      @metric.options.fetch(option).block.call(metric.scope.call(start_time))
     end
 
     def key

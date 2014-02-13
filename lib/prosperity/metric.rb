@@ -2,7 +2,7 @@ module Prosperity
   class Metric 
     def self.scope(&block)
       if block_given?
-        @scope = block.call
+        @scope = block
       else
         raise MissingScope.new if @scope.nil?
         @scope

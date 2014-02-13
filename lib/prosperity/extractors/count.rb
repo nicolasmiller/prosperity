@@ -11,7 +11,7 @@ module Prosperity
         if metric.sql?
           data << count_up_to_date_with_sql(start_time)
         else
-          data << scope.where("#{metric.group_by} < ?", start_time).count
+          data << scope(start_time).where("#{metric.group_by} < ?", start_time).count
         end
       end
 
